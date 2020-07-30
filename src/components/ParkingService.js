@@ -28,11 +28,12 @@ class ParkingService extends Component
                             value={500}
                             progress={true}/>
                         <GraphWidgetContainer href="http://localhost:3001/tickets/progression"
-                            heading="Tickets Over Time"
+                            heading="Parking Status For Today"
                             colspan={2} 
-                            rowspan={2} />
+                            rowspan={2} 
+                            chartType="line"/>
                         <ListWidgetContainer href="http://localhost:3001/stats/top"
-                            heading="Top Ticket Answerers"
+                            heading="Floor-wise Parking Distribution"
                             rowspan={3}
                             colspan={2} />
                         <Widget heading="Parking Load" colspan={2}>

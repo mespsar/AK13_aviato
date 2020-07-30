@@ -4,7 +4,6 @@ import '../styles/App.css';
 import Unknown from './Unknown-2.svg';
 import Widget from './Widget';
 import NumberWidget from './NumberWidget';
-import ListWidgetContainer from './ListWidgetContainer';
 import GraphWidgetContainer from './GraphWidgetContainer';
 import SideBar from './sidebar';
 class TrolleyService extends Component 
@@ -20,23 +19,42 @@ class TrolleyService extends Component
                     </header>
                 </div>
                 <div className="App">
-                    <NumberWidget heading="Trolley Status"
+                    <NumberWidget heading="Terminal 1 Trolley Utilization"
                         rowspan={1}
-                        colspan = {2}
+                        colspan={2}
                         min={0}
-                        max={800}
-                        value={500}
+                        max={3000}
+                        value={428}
                         progress={true}/>
+                    <NumberWidget heading="Terminal 2 Trolley Utilization"
+                        rowspan={1}
+                        colspan={2}
+                        min={0}
+                        max={3000}
+                        value={637}
+                        progress={true}/>
+                    
                     <GraphWidgetContainer href="http://localhost:3001/tickets/progression"
-                        heading="Tickets Over Time"
-                        colspan={2} 
-                        rowspan={2} />
-                    <ListWidgetContainer href="http://localhost:3001/stats/top"
-                        heading="Top Ticket Answerers"
-                        rowspan={3}
-                        colspan={2} />
-                    <Widget heading="Parking Load" colspan={2}>
-                        Normal
+                        heading="Terminal 1 Trolley Distribution"
+                        rowspan={2}
+                        colspan={2}
+                        chartType="pie"
+                        /> 
+                    <GraphWidgetContainer href="http://localhost:3001/tickets/progression"
+                        heading="Terminal 2 Trolley Distribution"
+                        rowspan={2}
+                        colspan={2}
+                        chartType="pie"
+                        /> 
+                    <Widget heading = "Load Status"
+                        rowspan={2}
+                        colspan={2}>
+                        Balanced
+                    </Widget>
+                    <Widget heading = "Load Status"
+                        rowspan={2}
+                        colspan={2}>
+                        Imbalance
                     </Widget>
                 </div>
             </div>

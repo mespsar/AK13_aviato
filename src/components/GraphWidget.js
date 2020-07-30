@@ -1,28 +1,24 @@
 import React, { Component } from 'react';
+import Widget from '../components/Widget';  
+import { Line, Doughnut } from 'react-chartjs-2';     // All the various graphs to be rendered are managed by this charting library
+import '../styles/GraphWidget.css';         // Constant CSS styling across all the pages
 
-// Import components
-import Widget from '../components/Widget';
-
-//Import graphing component
-import { Line } from 'react-chartjs-2';
-
-// Import styling
-import '../styles/GraphWidget.css';
-
-class GraphWidget extends Component {
-    constructor(props) {
+class GraphWidget extends Component 
+{
+    constructor(props) 
+    {
         super(props);
-
-        // Set the initial state for the graphing component
+        // Intial plot values & to be plotted dataset is initially unknown
         this.state = {
             values: {
                 labels: ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"],
                 datasets: []
             },
-            chartOptions: {
+            // Chart Based settings
+            chartOptions_line: {
                 responsive: true,
                 maintainAspectRatio: false,
-                scaleShowGridLines: false,
+                scaleShowGridLines: true,
                 scales: {
                     xAxes: [{
                         ticks: {
@@ -31,7 +27,7 @@ class GraphWidget extends Component {
                             fontColor: "#ecf0f1",
                         },
                         gridLines: {
-                            display: false
+                            display: true
                         }
                     }],
                     yAxes: [{
@@ -42,28 +38,54 @@ class GraphWidget extends Component {
                             fontColor: "#ecf0f1",
                         },
                         gridLines: {
-                            display: false
+                            display: true
                         }
                     }],
                 },
                 legend: {
-                    display: false
+                    display: true
+                }
+            },
+            chartOptions_pie: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scaleShowGridLines: false,
+                legend: {
+                    display: true
                 }
             }
         }
     }
 
-    // Update the state based on changing props
+    renderChart(data, chartType)
+    {
+        if(chartType === "pie")
+        {
+            console.log("Pie")
+            return (
+                <Doughnut data={data} options={this.state.chartOptions_pie}/>
+            );
+        }
+        else
+        {
+            console.log(chartType)
+            return(
+                <Line data={data} options={this.state.chartOptions_line}/>
+            );
+        }
+    }
+    // LifeCycle methods to update the graph on new datasets
     componentWillReceiveProps(nextProps) {
         if (this.props.data !== nextProps.data){
-  this.generateDatasets(nextProps);
-}
+            this.generateDatasets(nextProps);
+        }
         
     }
 
     //Convert the data received in props to a format the graphing component likes
     generateDatasets(props) {
         let datasets = [];
+        // Pushing the values in the dataset along the X & Y axis
         props.data.forEach(function (data) {
             datasets.push({
             label: data.label,
@@ -74,9 +96,6 @@ class GraphWidget extends Component {
             pointHitRadius: 10
             });
           }, this);
-
-        //Create a dataset object that Chart.js to understand
-        
 
         //Let the React wrapper for Chart.js update the view
         this.setState({
@@ -91,7 +110,7 @@ class GraphWidget extends Component {
             // Wrap the graphing component in the generic wrapper
             <Widget heading={this.props.heading} colspan={this.props.colspan} rowspan={this.props.rowspan} loading={this.props.loading}>
                 <div className="GraphWidget">
-                    <Line data={this.state.values} options={this.state.chartOptions} />
+                    {this.renderChart(this.state.values,this.props.chartType)}
                 </div>
             </Widget>
         );

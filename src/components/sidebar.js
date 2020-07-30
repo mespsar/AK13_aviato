@@ -29,6 +29,10 @@ export default props => {
       <a className="menu-item" href="/Forecast">
         Forecast
       </a>
+
+      <a className="menu-item" href="/FeedBack">
+        Flyer FeedBack
+      </a>
     </Menu>
   );
 };
