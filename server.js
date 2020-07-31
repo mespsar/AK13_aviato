@@ -3,6 +3,7 @@ var json_file = require('./test_str.json');
 const axios = require('axios')
 
 var app = express();
+var t1;
 const results = [];
 
 app.use(function (req, res, next) {
@@ -16,7 +17,7 @@ app.use(function (req, res, next) {
     }
 });
 
-//Static Reading 
+//Static Reading
 app.get('/forecast', function (req, res) {
     console.log(json_file);
     axios.post('http://127.0.0.1:5000/makecalc', json_file)
@@ -30,7 +31,7 @@ app.get('/forecast', function (req, res) {
             week_y : response["data"][3].replace('[','').replace(']','').split(','),
             daily_x : response["data"][4].replace('[','').replace(']','').split(','),
             daily_y : response["data"][5].replace('[','').replace(']','').split(','),
-         } 
+         }
         )
       });
 });
@@ -40,14 +41,14 @@ app.get('/checkInDetails1', function (req, res) {
     dest = ["DEL", "BLR", "COK", "HYD", "TRV", "CCU", "PAT", "PNQ", "AMD", "MAA", "DED", "SXR", "STV", "TRZ", "BDQ"]
     gates = ["1A","1B","2A","2B","3A","3B","4A","4B","5A","5B","6A","6B","7A","7B","8A","8B","9A","9B","10A","10B"]
 
-    
+
     var today = new Date();
     var time  = today.getHours() + ":" + (today.getMinutes()+Math.floor(Math.random() * 20)-5) + ":" + today.getSeconds();
     airline_name = airlines[Math.floor(Math.random() * airlines.length)]
     dest_flt     = dest[Math.floor(Math.random() * dest.length)]
     gate = gates[Math.floor(Math.random() * gates.length)]
- 
-    
+
+
     res.json({
         air : airline_name,
         src : "BOM",
@@ -63,14 +64,14 @@ app.get('/checkInDetails2', function (req, res) {
     dest = ["DEL", "BLR", "COK", "HYD", "TRV", "CCU", "PAT", "PNQ", "AMD", "MAA", "DED", "SXR", "STV", "TRZ", "BDQ"]
     gates = ["1A","1B","2A","2B","3A","3B","4A","4B","5A","5B","6A","6B","7A","7B","8A","8B","9A","9B","10A","10B"]
 
-    
+
     var today = new Date();
     var time  = today.getHours() + ":" + (today.getMinutes()+Math.floor(Math.random() * 20)-5) + ":" + today.getSeconds();
     airline_name = airlines[Math.floor(Math.random() * airlines.length)]
     dest_flt     = dest[Math.floor(Math.random() * dest.length)]
     gate = gates[Math.floor(Math.random() * gates.length)]
 
-    
+
     res.json({
         air : airline_name,
         src : "BOM",
@@ -86,14 +87,14 @@ app.get('/checkInDetails3', function (req, res) {
     dest = ["DEL", "BLR", "COK", "HYD", "TRV", "CCU", "PAT", "PNQ", "AMD", "MAA", "DED", "SXR", "STV", "TRZ", "BDQ"]
     gates = ["1A","1B","2A","2B","3A","3B","4A","4B","5A","5B","6A","6B","7A","7B","8A","8B","9A","9B","10A","10B"]
 
-    
+
     var today = new Date();
     var time  = today.getHours() + ":" + (today.getMinutes()+Math.floor(Math.random() * 20)-5) + ":" + today.getSeconds();
     airline_name = airlines[Math.floor(Math.random() * airlines.length)]
     dest_flt     = dest[Math.floor(Math.random() * dest.length)]
     gate = gates[Math.floor(Math.random() * gates.length)]
 
-    
+
     res.json({
         air : airline_name,
         src : "BOM",
@@ -108,7 +109,7 @@ app.get('/checkInDetails4', function (req, res) {
     airlines = ["6E", "AI",  "SJ", "GO", "VTI", "AK", "IX"]
     dest = ["DEL", "BLR", "COK", "HYD", "TRV", "CCU", "PAT", "PNQ", "AMD", "MAA", "DED", "SXR", "STV", "TRZ", "BDQ"]
     gates = ["1A","1B","2A","2B","3A","3B","4A","4B","5A","5B","6A","6B","7A","7B","8A","8B","9A","9B","10A","10B"]
-    
+
     var today = new Date();
     var time  = today.getHours() + ":" + (today.getMinutes()+Math.floor(Math.random() * 20)-5) + ":" + today.getSeconds();
     airline_name = airlines[Math.floor(Math.random() * airlines.length)]
@@ -129,13 +130,13 @@ app.get('/checkInDetails5', function (req, res) {
     airlines = ["6E", "AI",  "SJ", "GO", "VTI", "AK", "IX"]
     dest = ["DEL", "BLR", "COK", "HYD", "TRV", "CCU", "PAT", "PNQ", "AMD", "MAA", "DED", "SXR", "STV", "TRZ", "BDQ"]
     gates = ["1A","1B","2A","2B","3A","3B","4A","4B","5A","5B","6A","6B","7A","7B","8A","8B","9A","9B","10A","10B"]
-    
+
     var today = new Date();
     var time  = today.getHours() + ":" + (today.getMinutes()+Math.floor(Math.random() * 20)-5) + ":" + today.getSeconds();
     airline_name = airlines[Math.floor(Math.random() * airlines.length)]
     dest_flt     = dest[Math.floor(Math.random() * dest.length)]
     gate = gates[Math.floor(Math.random() * gates.length)]
-    
+
     res.json({
         air : airline_name,
         src : "BOM",
@@ -188,7 +189,7 @@ app.get('/stats/top', function (req, res) {
             label: "Parking floor 4",
             value: Math.floor(Math.random() * 200) + 19
         },
-    ]);    
+    ]);
 });
 
 app.get('/belt', function (req, res) {
@@ -196,7 +197,7 @@ app.get('/belt', function (req, res) {
     src = ["DEL", "BLR", "COK", "HYD", "TRV", "CCU", "PAT", "PNQ", "AMD", "MAA", "DED", "SXR", "STV", "TRZ", "BDQ"]
     airline_name = airlines[Math.floor(Math.random() * airlines.length)]
     src_flt     = src[Math.floor(Math.random() * src.length)]
-    
+
     res.json([
         {
             label: "Baggage Belt 1",
@@ -222,7 +223,49 @@ app.get('/belt', function (req, res) {
             src : src_flt,
             value: Math.floor(Math.random() * 200) + 19
         },
-    ]);    
+    ]);
+});
+app.get('/trolley/status', function (req, res) {
+    let labels = ["pickup","drop","free"];
+    let colors = ["#e74c3c"];
+    let backgroundColor=["#3b6978","#84a9ac","#cae8d5"]
+    let values = [];
+
+ const csv = require('csv-parser');
+ const fs = require('fs');
+
+ // fs.createReadStream('trolleydata.csv')
+ //   .pipe(csv())
+ //   .on('data', (row) => {
+ //     roW.push(row)
+ //   })
+ //   .on('end', () => {
+ //     console.log('CSV file successfully processed');
+ //   });
+
+
+
+ var data =[1000,1000,1000]
+
+
+data[0]=(Math.floor(Math.random() * 1000));
+data[1]=(Math.floor(Math.random() * 1000));
+data[2]=3000-data[0]-data[1]
+// let data =Object.values(roW[0])
+t1=data[0]+data[1]
+// console.log(data)
+        values.push({
+
+            labels,
+            data,
+            colors,
+            backgroundColor,
+            t1
+
+        });
+    // });
+
+    res.json(values);
 });
 
 

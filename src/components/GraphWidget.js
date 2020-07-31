@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Widget from '../components/Widget';  
+import Widget from '../components/Widget';
 import { Line, Doughnut } from 'react-chartjs-2';     // All the various graphs to be rendered are managed by this charting library
 import '../styles/GraphWidget.css';         // Constant CSS styling across all the pages
 
-class GraphWidget extends Component 
+class GraphWidget extends Component
 {
-    constructor(props) 
+    constructor(props)
     {
         super(props);
         // Intial plot values & to be plotted dataset is initially unknown
@@ -79,7 +79,7 @@ class GraphWidget extends Component
         if (this.props.data !== nextProps.data){
             this.generateDatasets(nextProps);
         }
-        
+
     }
 
     //Convert the data received in props to a format the graphing component likes

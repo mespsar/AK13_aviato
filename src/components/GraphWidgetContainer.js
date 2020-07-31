@@ -2,14 +2,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';                            // Import request module
 import GraphWidget from '../components/GraphWidget';  // Import components
+import GraphWidget2 from '../components/GraphWidget2';  // Import components
 
-class GraphWidgetContainer extends Component 
+class GraphWidgetContainer extends Component
 {
-    constructor() 
+    constructor()
     {
         super();
         // First time when the widget is made these values are set to the following defaults
-        this.state = 
+        this.state =
         {
             loading: false,
             values: []
@@ -19,16 +20,16 @@ class GraphWidgetContainer extends Component
     }
 
     // Excecuted only when the component loads for the first time on the page
-    componentDidMount() 
+    componentDidMount()
     {
         // Uses to load the time based binding function
         this.getData().then(_ => {
-            this.interval = setInterval(this.getData, 60000);
+            this.interval = setInterval(this.getData, 5000);
         });
     }
 
     // Data Fetcher component
-    async getData() 
+    async getData()
     {
         // Tell the Widget component we're currently loading
         this.setState({ loading: true });
@@ -47,8 +48,16 @@ class GraphWidgetContainer extends Component
     }
 
     render() {
+      if(this.props.chartType==="Doughnut")
+      {return (
+          // All the arguments with the props prefix deal with constants & all with state prefix deal with regular API called dynamic values
+          <GraphWidget2 heading={this.props.heading} colspan={this.props.colspan} chartType = {this.props.chartType} rowspan={this.props.rowspan} data={this.state.data} loading={this.state.loading} />
+      );}
+
+
+      else
         return (
-            // All the arguments with the props prefix deal with constants & all with state prefix deal with regular API called dynamic values 
+            // All the arguments with the props prefix deal with constants & all with state prefix deal with regular API called dynamic values
             <GraphWidget heading={this.props.heading} colspan={this.props.colspan} chartType = {this.props.chartType} rowspan={this.props.rowspan} data={this.state.data} loading={this.state.loading} />
         );
     }
