@@ -3,10 +3,22 @@
     min-height: 100vh;
     padding: 1rem;
     -webkit-font-smoothing: antialiased;
+
 }
 
 .App > * + * {
     margin-top: 1rem;
+}
+.home{
+padding-top: 200px;
+
+text-align: center;}
+
+.foot{
+  position: fixed;
+
+  bottom: 10px;
+   left :45%;
 }
 
 /* autoprefixer: off */

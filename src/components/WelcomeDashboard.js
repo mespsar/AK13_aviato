@@ -5,7 +5,7 @@ import Unknown from './Unknown-2.svg';
 import ListWidgetContainer from './ListWidgetContainer';
 import GraphWidgetContainer from './GraphWidgetContainer';
 import SideBar from './sidebar';
-class WelcomeDashboard extends Component 
+class WelcomeDashboard extends Component
 {
         render() {
             return (
@@ -17,7 +17,22 @@ class WelcomeDashboard extends Component
                             <h1>Airport Authority Of India Dashboard</h1>
                         </header>
                     </div>
+
+
+                      <div className="container home">
+
+
+                        <h1 className="display-4">Welcome to the Dashboard</h1>
+                        <p className="lead">click on the sidebar to view all the available options.</p>
+                      </div>
+
+                      <div className="body foot">
+                      <p>made by team Aviato</p>
+                      </div>
+
+
                 </div>
+
             );
         }
 }
