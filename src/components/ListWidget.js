@@ -38,9 +38,12 @@ class ListWidget extends Component {
         return (
             <ListDisplay>
                 {sortedItems.map((item, index) =>
-                    <ListItem key={item.label}
-                        label={item.label} value={item.value}
-                        min={min} max={max} />)}
+                    <ListItem 
+                        key={item.label}
+                        label={item.label} 
+                        value={item.value}
+                        min={min} 
+                        max={max} />)}
             </ListDisplay>
         );
     }

@@ -24,7 +24,7 @@ class ListWidgetContainer extends Component {
     componentDidMount() {
         this.getData().then(_ => {
             // Re-fetch every minute
-            this.interval = setInterval(this.getData, 60000);
+            this.interval = setInterval(this.getData, 9000);
         });
     }
 
@@ -48,7 +48,12 @@ class ListWidgetContainer extends Component {
     render() {
         return (
             // Render the list widget
-            <ListWidget heading={this.props.heading} colspan={this.props.colspan} rowspan={this.props.rowspan} listItems={this.state.values} loading={this.state.loading} />
+            <ListWidget 
+                heading={this.props.heading} 
+                colspan={this.props.colspan} 
+                rowspan={this.props.rowspan} 
+                listItems={this.state.values} 
+                loading={this.state.loading} />
         );
     }
 }

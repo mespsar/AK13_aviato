@@ -41,6 +41,7 @@ class CheckinService extends Component
                         <h1>{this.state.curTime}</h1>
                     </header>
                 </div>
+                
                 <div className="Body">
                   <CheckinServiceContainer 
                   href="http://localhost:3001/checkInDetails1"

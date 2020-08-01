@@ -12,7 +12,7 @@ class ListItem extends Component {
             <li className="ListItem">
                 <div className="value">{this.props.value}</div>
                 <div className="label">
-                    {this.props.label}
+                    &nbsp;&nbsp;{this.props.label}
                     {/* Compare progress against others in the list */}
                     <Progress min={this.props.min} max={this.props.max} value={this.props.value} />
                 </div>

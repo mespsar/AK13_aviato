@@ -2,13 +2,23 @@ import React, { Component } from 'react';
 import '../styles/App.css';
 
 import Unknown from './Unknown-2.svg';
-import Widget from './Widget';
-import NumberWidget from './NumberWidget';
-import ListWidgetContainer from './ListWidgetContainer';
-import GraphWidgetContainer from './GraphWidgetContainer';
 import SideBar from './sidebar';
+import ParkingContainer from './ParkingContainer';
+
+
 class ParkingService extends Component 
 {
+    state={
+        curTime : new Date().toLocaleString(),
+      }
+
+    componentDidMount() {
+        setInterval(() => {
+          this.setState({
+            curTime : new Date().toLocaleString()
+          })
+        }, 1000)
+      }
         render() {
             return (
                 <div className="Main">
@@ -17,28 +27,21 @@ class ParkingService extends Component
                         <header style={{display: "flex", flexDirection:"row"}}>
                             <img alt="No Data" src={Unknown} width="150" height="100"/>
                             <h1>Airport Authority Of India Dashboard</h1>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <h1>{this.state.curTime}</h1>
                         </header>
                     </div>
-                    <div className="App">
-                        <NumberWidget heading="Parking Slots Filled"
-                            rowspan={1}
-                            colspan = {2}
-                            min={0}
-                            max={800}
-                            value={500}
-                            progress={true}/>
-                        <GraphWidgetContainer href="http://localhost:3001/tickets/progression"
-                            heading="Parking Status For Today"
-                            colspan={2} 
-                            rowspan={2} 
-                            chartType="line"/>
-                        <ListWidgetContainer href="http://localhost:3001/stats/top"
-                            heading="Floor-wise Parking Distribution"
-                            rowspan={3}
-                            colspan={2} />
-                        <Widget heading="Parking Load" colspan={2}>
-                            Normal
-                        </Widget>
+                    <div className="Body">
+                        <ParkingContainer 
+                            href="http://localhost:3001/stats/top"
+                            heading="Parking Information"/>
                     </div>
                 </div>
             );

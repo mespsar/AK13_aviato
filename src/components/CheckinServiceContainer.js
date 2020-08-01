@@ -28,7 +28,8 @@ class CheckinServiceContainer extends Component
             etd : 0,
             cnt : 0,
             gate : 0,
-
+            status : "Active",
+            min :0
         }
         // Bind function to refer to component
         this.getData = this.getData.bind(this);
@@ -39,7 +40,7 @@ class CheckinServiceContainer extends Component
     {
         // Uses to load the time based binding function
         this.getData().then(_ => {
-            this.interval = setInterval(this.getData, 60000);
+            this.interval = setInterval(this.getData, 5000);
         });
     }
 
@@ -60,7 +61,13 @@ class CheckinServiceContainer extends Component
                                 etd : response.data.etd,
                                 cnt : response.data.cnt,
                                 gate: response.data.gate, 
+                                min : response.data.min
                             });
+                if(response.data.min < (new Date()).getMinutes()){
+                    this.setState({
+                        status : "Inactive",
+                    });
+                }
             })
             .catch(error => {
                 // Incase of an error stop the loading & console log the error
@@ -160,7 +167,7 @@ class CheckinServiceContainer extends Component
                     max = {200}
                     value = {this.state.cnt}/>
                 <Widget 
-                    heading="Status : Active"
+                    heading={"Status : "+this.state.status}
                     colspan={3}
                     rowspan={1}>
                     {this.renderImg(this.state.air,this.state.num, this.state.gate,this.state.etd,this.state.des)}

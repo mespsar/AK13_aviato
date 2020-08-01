@@ -3,6 +3,13 @@ import { slide as Menu } from 'react-burger-menu';
 // Tags to Render On Menu Selection
 
 
+//href
+//href="/Trolley"
+//href="/CheckIn"
+//href="Baggage"
+//href="/Forecast"
+//href="/FeedBack"
+
 export default props => {
   return (
     <Menu>
@@ -11,26 +18,26 @@ export default props => {
       </a>
 
       <a className="menu-item" href="/Parking">
-        Parking 
+        Parking
       </a>
 
-      <a className="menu-item" href="/Trolley">
-        Trolley  
+      <a className="menu-item">
+        Trolley
       </a>
 
-      <a className="menu-item" href="/CheckIn">
+      <a className="menu-item">
         Check-In Counter 
       </a>
 
-      <a className="menu-item" href="Baggage">
+      <a className="menu-item">
         Baggage Counter
       </a>
 
-      <a className="menu-item" href="/Forecast">
+      <a className="menu-item">
         Forecast
       </a>
 
-      <a className="menu-item" href="/FeedBack">
+      <a className="menu-item">
         Flyer FeedBack
       </a>
     </Menu>
