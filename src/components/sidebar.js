@@ -7,7 +7,6 @@ import { slide as Menu } from 'react-burger-menu';
 //href="/Trolley"
 //href="/CheckIn"
 //href="Baggage"
-//href="/Forecast"
 //href="/FeedBack"
 
 export default props => {
@@ -33,7 +32,7 @@ export default props => {
         Baggage Counter
       </a>
 
-      <a className="menu-item">
+      <a className="menu-item" href="/Forecast">
         Forecast
       </a>
 

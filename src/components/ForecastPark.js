@@ -4,8 +4,6 @@ import 'react-day-picker/lib/style.css';
 
 
 import Unknown from './Unknown-2.svg';
-import Widget from './Widget';
-import NumberWidget from './NumberWidget';
 import ForecastGraph from './ForecastGraph';
 import SideBar from './sidebar';
 

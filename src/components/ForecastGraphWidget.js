@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Widget from './Widget';  
 import { Line, Doughnut } from 'react-chartjs-2';     // All the various graphs to be rendered are managed by this charting library
-import '../styles/GraphWidget.css';         // Constant CSS styling across all the pages
+import '../styles/GraphWidget.css';                   // Constant CSS styling across all the pages
 
 
 class ForecastGraphWidget extends Component 
@@ -80,7 +80,7 @@ class ForecastGraphWidget extends Component
                 )
             });
             dataset = {
-                label : "DATA",
+                label : "Day Wise Trend",
                 data: conv_ds,
                 fill: false,
                 borderColor: "#e74c3c",
@@ -107,7 +107,7 @@ class ForecastGraphWidget extends Component
             });
             console.log(conv_ds);
             dataset = {
-                label : "DATA",
+                label : "Week Wise Prediction",
                 data: conv_ds,
                 fill: false,
                 borderColor: "#e74c3c",
@@ -117,7 +117,7 @@ class ForecastGraphWidget extends Component
             this.setState({
                     values: {
                         datasets: [dataset],
-                        labels: props.data[1]["week_x"]
+                        labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
                     },
                 });
 
@@ -132,7 +132,7 @@ class ForecastGraphWidget extends Component
                 )
             });
             dataset = {
-                label : "DATA",
+                label : "Daily Time Prediction",
                 data: conv_ds,
                 fill: false,
                 borderColor: "#e74c3c",
@@ -152,7 +152,10 @@ class ForecastGraphWidget extends Component
     render() {
         return (
             // Wrap the graphing component in the generic wrapper
-            <Widget heading={this.props.heading} colspan={this.props.colspan} rowspan={this.props.rowspan} loading={this.props.loading}>
+            <Widget heading={this.props.heading} 
+                    colspan={this.props.colspan} 
+                    rowspan={this.props.rowspan} 
+                    loading={this.props.loading}>
                 <div className="GraphWidget">
                     <Line data={this.state.values} options={this.state.chartOptions_line}/>
                 </div>

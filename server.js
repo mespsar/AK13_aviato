@@ -1,5 +1,5 @@
 var express = require('express');
-var json_file = require('./test_str.json');
+var json_file = require('./test_str(1).json');
 const axios = require('axios')
 
 var app = express();

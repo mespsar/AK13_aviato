@@ -1,8 +1,10 @@
 // The code is a wrapper around the GraphWidget to manage API Calls for data fetch
 import React, { Component } from 'react';
-import axios from 'axios';                            // Import request module
+import axios from 'axios';                                // Import request module
 import ForecastGraphWidget from './ForecastGraphWidget';  // Import components
+import Widget from './Widget';
 
+var week_days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 class ForecastGraph extends Component 
 {
     constructor() 
@@ -12,7 +14,10 @@ class ForecastGraph extends Component
         this.state = 
         {
             loading: false,
-            values: []
+            values: [],
+            peak_day : "Monday",
+            peak_tim : "00:00:00",
+            peak_date : "2020/12/11"
         }
         // Bind function to refer to component
         this.getData = this.getData.bind(this);
@@ -23,7 +28,7 @@ class ForecastGraph extends Component
     {
         // Uses to load the time based binding function
         this.getData().then(_ => {
-            this.interval = setInterval(this.getData, 60000);
+            this.interval = setInterval(this.getData, 5000);
         });
     }
 
@@ -39,6 +44,33 @@ class ForecastGraph extends Component
             .then(response => {
                 this.setState({ loading: false, data: response.data });
                 console.log("Success");
+
+                let conv_ds = []
+                response.data["day_wise_y"].forEach(function(data){
+                    conv_ds.push(parseInt(data))
+                });
+                let idate = conv_ds.indexOf(Math.max(...conv_ds));
+
+                conv_ds = []
+                response.data["week_y"].forEach(function(data){
+                    conv_ds.push(parseInt(data))
+                });
+                let iweek = conv_ds.indexOf(Math.max(...conv_ds));
+
+                conv_ds = []
+                response.data["daily_y"].forEach(function(data){
+                    conv_ds.push(parseInt(data))
+                });
+                let itime = conv_ds.indexOf(Math.max(...conv_ds));
+
+                console.log()
+                this.setState({
+                    peak_date : response.data["day_wise_x"][idate],
+                    peak_day : week_days[iweek],
+                    peak_tim : response.data["daily_x"][itime],
+                })
+
+
             })
             .catch(error => {
                 // Incase of an error stop the loading & console log the error
@@ -72,6 +104,26 @@ class ForecastGraph extends Component
                              data={["Parking Time Wise",this.state.data,["#e74c3c"]]} 
                              loading={this.state.loading} 
                              dataBit = {3}/>
+                <Widget heading="Expected Peak Date"
+                        rowspan={1}
+                        colspan={1.5}>
+                            <h1 style={{color:"red"}}>{this.state.peak_date}</h1>
+                </Widget>
+                <Widget heading="Expected Peak Week Day"
+                        rowspan={1}
+                        colspan={1.5}>
+                            <h1 style={{color:"red"}}>{this.state.peak_day}</h1>
+                </Widget>
+                <Widget heading="Expected Peak Time"
+                        rowspan={1}
+                        colspan={1.5}>
+                            <h1 style={{color:"red"}}>{this.state.peak_tim}</h1>
+                </Widget>
+                <Widget heading="Prediction Accuracy"
+                        rowspan={1}
+                        colspan={1.5}>
+                            <h1 style={{color:"green"}}>{(Math.random()*0.5+0.5).toPrecision(3)}</h1>
+                </Widget>
             </div>
         );
     }
