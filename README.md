@@ -36,9 +36,13 @@ The model is based on additive nature & made up of 3 main components :
 
 Below are some sample snips from our dashboard:
 ![Image of snip](https://github.com/mespsar/AK13_aviato/blob/master/public/1.PNG)
+Our home page of dashboard
 ![Image of snip](https://github.com/mespsar/AK13_aviato/blob/master/public/2.PNG)
-![Image of snip](https://github.com/mespsar/AK13_aviato/blob/master/public/3.PNG)
-![Image of snip](https://github.com/mespsar/AK13_aviato/blob/master/public/4.PNG)
+Our parking page
 
+![Image of snip](https://github.com/mespsar/AK13_aviato/blob/master/public/3.PNG)
+Our checkin page
+![Image of snip](https://github.com/mespsar/AK13_aviato/blob/master/public/4.PNG)
+our forecast page using fbprophet model
 
 
