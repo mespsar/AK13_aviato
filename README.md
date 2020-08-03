@@ -34,7 +34,11 @@ The model is based on additive nature & made up of 3 main components :
 
 3.The model is based on Bayesian  framework along with inclusion of Fourier time series & Change point selections.
 
-below are some sample snips from our dashboard
+Below are some sample snips from our dashboard:
+![Image of snip](https://github.com/mespsar/AK13_aviato/blob/master/public/1.PNG)
+![Image of snip](https://github.com/mespsar/AK13_aviato/blob/master/public/2.PNG)
+![Image of snip](https://github.com/mespsar/AK13_aviato/blob/master/public/3.PNG)
+![Image of snip](https://github.com/mespsar/AK13_aviato/blob/master/public/4.PNG)
 
 
 
