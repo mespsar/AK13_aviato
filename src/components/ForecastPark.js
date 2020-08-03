@@ -8,7 +8,7 @@ import ForecastGraph from './ForecastGraph';
 import SideBar from './sidebar';
 
 
-class ForecastPark extends Component 
+class ForecastPark extends Component
 {
     render() {
         return (

@@ -24,7 +24,7 @@ class GraphWidgetContainer extends Component
     {
         // Uses to load the time based binding function
         this.getData().then(_ => {
-            this.interval = setInterval(this.getData, 5000);
+            this.interval = setInterval(this.getData, 2000);
         });
     }
 
