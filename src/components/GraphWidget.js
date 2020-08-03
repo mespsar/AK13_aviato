@@ -11,7 +11,7 @@ class GraphWidget extends Component
         // Intial plot values & to be plotted dataset is initially unknown
         this.state = {
             values: {
-                labels: ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"],
+                labels: [" "," "," "," "," "," "," "," "],
                 datasets: []
             },
             // Chart Based settings

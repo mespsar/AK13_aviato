@@ -43,7 +43,11 @@ app.get('/checkInDetails1', function (req, res) {
 
 
     var today = new Date();
-    var time  = today.getHours() + ":" + (today.getMinutes()+Math.floor(Math.random() * 20)-5) + ":" + today.getSeconds();
+    var hr  = today.getHours() + ":"
+    var min = (today.getMinutes()+Math.floor(Math.random() * 20)-5)
+    if(min>=60)
+        min = today.getMinutes()
+    var time  = hr + min + ":" + today.getSeconds();
     airline_name = airlines[Math.floor(Math.random() * airlines.length)]
     dest_flt     = dest[Math.floor(Math.random() * dest.length)]
     gate = gates[Math.floor(Math.random() * gates.length)]
@@ -56,7 +60,8 @@ app.get('/checkInDetails1', function (req, res) {
         num : Math.floor(Math.random() * 300),
         etd : time,
         cnt : Math.floor(Math.random() * 200),
-        gate : gate
+        gate : gate,
+        min : min
     })
 });
 app.get('/checkInDetails2', function (req, res) {
@@ -66,7 +71,11 @@ app.get('/checkInDetails2', function (req, res) {
 
 
     var today = new Date();
-    var time  = today.getHours() + ":" + (today.getMinutes()+Math.floor(Math.random() * 20)-5) + ":" + today.getSeconds();
+    var hr  = today.getHours() + ":"
+    var min = (today.getMinutes()+Math.floor(Math.random() * 20)-5)
+    if(min>=60)
+        min = today.getMinutes()
+    var time  = hr + min + ":" + today.getSeconds();
     airline_name = airlines[Math.floor(Math.random() * airlines.length)]
     dest_flt     = dest[Math.floor(Math.random() * dest.length)]
     gate = gates[Math.floor(Math.random() * gates.length)]
@@ -79,7 +88,8 @@ app.get('/checkInDetails2', function (req, res) {
         num : Math.floor(Math.random() * 300),
         etd : time,
         cnt : Math.floor(Math.random() * 200),
-        gate : gate
+        gate : gate,
+        min : min
     })
 });
 app.get('/checkInDetails3', function (req, res) {
@@ -89,7 +99,11 @@ app.get('/checkInDetails3', function (req, res) {
 
 
     var today = new Date();
-    var time  = today.getHours() + ":" + (today.getMinutes()+Math.floor(Math.random() * 20)-5) + ":" + today.getSeconds();
+    var hr  = today.getHours() + ":"
+    var min = (today.getMinutes()+Math.floor(Math.random() * 20)-5)
+    if(min>=60)
+        min = today.getMinutes()
+    var time  = hr + min + ":" + today.getSeconds();
     airline_name = airlines[Math.floor(Math.random() * airlines.length)]
     dest_flt     = dest[Math.floor(Math.random() * dest.length)]
     gate = gates[Math.floor(Math.random() * gates.length)]
@@ -102,7 +116,8 @@ app.get('/checkInDetails3', function (req, res) {
         num : Math.floor(Math.random() * 300),
         etd : time,
         cnt : Math.floor(Math.random() * 200),
-        gate : gate
+        gate : gate,
+        min : min
     })
 });
 app.get('/checkInDetails4', function (req, res) {
@@ -111,7 +126,11 @@ app.get('/checkInDetails4', function (req, res) {
     gates = ["1A","1B","2A","2B","3A","3B","4A","4B","5A","5B","6A","6B","7A","7B","8A","8B","9A","9B","10A","10B"]
 
     var today = new Date();
-    var time  = today.getHours() + ":" + (today.getMinutes()+Math.floor(Math.random() * 20)-5) + ":" + today.getSeconds();
+    var hr  = today.getHours() + ":"
+    var min = (today.getMinutes()+Math.floor(Math.random() * 20)-5)
+    if(min>=60)
+        min = today.getMinutes()
+    var time  = hr + min + ":" + today.getSeconds();
     airline_name = airlines[Math.floor(Math.random() * airlines.length)]
     dest_flt     = dest[Math.floor(Math.random() * dest.length)]
     gate = gates[Math.floor(Math.random() * gates.length)]
@@ -123,7 +142,8 @@ app.get('/checkInDetails4', function (req, res) {
         num : Math.floor(Math.random() * 300),
         etd : time,
         cnt : Math.floor(Math.random() * 200),
-        gate : gate
+        gate : gate,
+        min : min
     })
 });
 app.get('/checkInDetails5', function (req, res) {
@@ -132,7 +152,11 @@ app.get('/checkInDetails5', function (req, res) {
     gates = ["1A","1B","2A","2B","3A","3B","4A","4B","5A","5B","6A","6B","7A","7B","8A","8B","9A","9B","10A","10B"]
 
     var today = new Date();
-    var time  = today.getHours() + ":" + (today.getMinutes()+Math.floor(Math.random() * 20)-5) + ":" + today.getSeconds();
+    var hr  = today.getHours() + ":"
+    var min = (today.getMinutes()+Math.floor(Math.random() * 20)-5)
+    if(min>=60)
+        min = today.getMinutes()
+    var time  = hr + min + ":" + today.getSeconds();
     airline_name = airlines[Math.floor(Math.random() * airlines.length)]
     dest_flt     = dest[Math.floor(Math.random() * dest.length)]
     gate = gates[Math.floor(Math.random() * gates.length)]
@@ -144,10 +168,10 @@ app.get('/checkInDetails5', function (req, res) {
         num : Math.floor(Math.random() * 300),
         etd : time,
         cnt : Math.floor(Math.random() * 200),
-        gate : gate
+        gate : gate,
+        min : min
     })
 });
-
 
 app.get('/tickets/progression', function (req, res) {
     let labels = ["Parking Till Now"];

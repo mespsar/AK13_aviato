@@ -79,79 +79,80 @@ class CheckinServiceContainer extends Component
     {
         if(data==="6E")
             return( 
-                <div className="details" style={{display:"flex", flexDirection:"row"}}>
+                <div className="details" style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
                     <img alt="No Data" src={E6} width="150" height="100"/>
-                    <h1>{data} 
+                    <h2>{data} 
                         {num}  &nbsp;&nbsp;&nbsp;&nbsp;
                          Departure Gate : {gate} &nbsp;&nbsp;&nbsp;&nbsp;
                          ETD : {etd} &nbsp;&nbsp;
-                         Flight Destination : {des}</h1>
+                         Flight Destination : {des}
+                        </h2>
                 </div>
             );
         else
         if(data==="AK")
         return( 
-            <div className="details" style={{display:"flex", flexDirection:"row"}}>
+            <div className="details" style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
                 <img alt="No Data" src={AK} width="150" height="100"/>
-                <h1>{data} 
+                <h2>{data} 
                     {num}  &nbsp;&nbsp;&nbsp;&nbsp;
                      Departure Gate : {gate} &nbsp;&nbsp;&nbsp;&nbsp;
                      ETD : {etd} &nbsp;&nbsp;
-                     Flight Destination : {des}</h1>
+                     Flight Destination : {des}</h2>
             </div>
         );        else
         if(data==="AI")
         return( 
-            <div className="details" style={{display:"flex", flexDirection:"row"}}>
+            <div className="details" style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
                 <img alt="No Data" src={AI} width="150" height="100"/>
-                <h1>{data} 
+                <h2>{data} 
                     {num}  &nbsp;&nbsp;&nbsp;&nbsp;
                      Departure Gate : {gate} &nbsp;&nbsp;&nbsp;&nbsp;
                      ETD : {etd} &nbsp;&nbsp;
-                     Flight Destination : {des}</h1>
+                     Flight Destination : {des}</h2>
             </div>
         );        else
         if(data==="IX")
         return( 
-            <div className="details" style={{display:"flex", flexDirection:"row"}}>
+            <div className="details" style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
                 <img alt="No Data" src={IX} width="150" height="100"/>
-                <h1>{data} 
+                <h2>{data} 
                     {num}  &nbsp;&nbsp;&nbsp;&nbsp;
                      Departure Gate : {gate} &nbsp;&nbsp;&nbsp;&nbsp;
                      ETD : {etd} &nbsp;&nbsp;
-                     Flight Destination : {des}</h1>
+                     Flight Destination : {des}</h2>
             </div>
         );        else
         if(data==="SJ")
         return( 
-            <div className="details" style={{display:"flex", flexDirection:"row"}}>
+            <div className="details" style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
                 <img alt="No Data" src={SJ} width="150" height="100"/>
-                <h1>{data} 
+                <h2>{data} 
                     {num}  &nbsp;&nbsp;&nbsp;&nbsp;
                      Departure Gate : {gate} &nbsp;&nbsp;&nbsp;&nbsp;
                      ETD : {etd} &nbsp;&nbsp;
-                     Flight Destination : {des}</h1>
+                     Flight Destination : {des}</h2>
             </div>
         );        else
         if(data==="VTI")
         return( 
-            <div className="details" style={{display:"flex", flexDirection:"row"}}>
+            <div className="details" style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
                 <img alt="No Data" src={VTI} width="150" height="100"/>
-                <h1>{data} 
+                <h2>{data} 
                     {num}  &nbsp;&nbsp;&nbsp;&nbsp;
                      Departure Gate : {gate} &nbsp;&nbsp;&nbsp;&nbsp;
                      ETD : {etd} &nbsp;&nbsp;
-                     Flight Destination : {des}</h1>
+                     Flight Destination : {des}</h2>
             </div>
         );        else
         return( 
-            <div className="details" style={{display:"flex", flexDirection:"row"}}>
+            <div className="details" style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
                 <img alt="No Data" src={GO} width="150" height="100"/>
-                <h1>{data}
+                <h2>{data}
                     {num}  &nbsp;&nbsp;&nbsp;&nbsp;
                      Departure Gate : {gate} &nbsp;&nbsp;&nbsp;&nbsp;
                      ETD : {etd} &nbsp;&nbsp;
-                     Flight Destination : {des}</h1>
+                     Flight Destination : {des}</h2>
             </div>
         );
     }

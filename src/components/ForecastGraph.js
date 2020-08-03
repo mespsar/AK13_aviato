@@ -57,7 +57,7 @@ class ForecastGraph extends Component
                     conv_ds.push(parseInt(data))
                 });
                 let idate = conv_ds.indexOf(Math.max(...conv_ds));
-                let changeDate = (((conv_ds[conv_ds.length-1]-conv_ds[0]) / (Math.max(...conv_ds)-Math.min(...conv_ds)))*100).toPrecision(2)
+                let changeDate = (((conv_ds[conv_ds.length-1]-conv_ds[0]) / (Math.max(...conv_ds)-Math.min(...conv_ds)))*100).toPrecision(3)
                 let rise_or_fall_Date = 0
 
                 if(changeDate >= 0)
@@ -71,7 +71,7 @@ class ForecastGraph extends Component
                     conv_ds.push(parseInt(data))
                 });
                 let iweek = conv_ds.indexOf(Math.max(...conv_ds));
-                let changeWeek = (((conv_ds[conv_ds.length-1]-conv_ds[0]) / (Math.max(...conv_ds)-Math.min(...conv_ds)))*100).toPrecision(2)
+                let changeWeek = (((conv_ds[conv_ds.length-1]-conv_ds[0]) / (Math.max(...conv_ds)-Math.min(...conv_ds)))*100).toPrecision(3)
                 console.log(changeWeek)
                 let rise_or_fall_Week = 0
 
@@ -86,7 +86,7 @@ class ForecastGraph extends Component
                     conv_ds.push(parseInt(data))
                 });
                 let itime = conv_ds.indexOf(Math.max(...conv_ds));
-                let changeTime = (((conv_ds[conv_ds.length-1]-conv_ds[0]) / (Math.max(...conv_ds)-Math.min(...conv_ds)))*100).toPrecision(2)
+                let changeTime = (((conv_ds[conv_ds.length-1]-conv_ds[0]) / (Math.max(...conv_ds)-Math.min(...conv_ds)))*100).toPrecision(3)
                 let rise_or_fall_Time = 0
 
                 if(changeTime >= 0)

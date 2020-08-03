@@ -56,6 +56,7 @@ def fit_and_predict(test_df):
     
     # Fitting the model
     ##################################################################################################################
+    # The Prophet model has been initialized with 10 changepoints & it can be later modified to fit the trainig data better
     model = Prophet()
     model.fit(X)
     ##################################################################################################################

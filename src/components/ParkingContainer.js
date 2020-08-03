@@ -78,7 +78,7 @@ class ParkingContainer extends Component
                             value={this.state.occ_val}
                             progress={true}/>
                         <GraphWidgetContainer href="http://localhost:3001/tickets/progression"
-                            heading="Parking Status For The Week"
+                            heading="Parking Live Status"
                             colspan={2} 
                             rowspan={2} 
                             chartType="line"/>
