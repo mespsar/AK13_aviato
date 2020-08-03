@@ -33,3 +33,8 @@ The model is based on additive nature & made up of 3 main components :
     3.Unexpected count outlier i.e. if the no. of parkings reported is more than the number of slots.
 
 3.The model is based on Bayesian  framework along with inclusion of Fourier time series & Change point selections.
+
+below are some sample snips from our dashboard
+
+
+
